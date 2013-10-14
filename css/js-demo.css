@@ -1,0 +1,36 @@
+
+/* Top menu to link back to article */
+
+.link-back {
+	padding: 10px;
+	color: white;
+	background-color: #676767;
+	box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.link-back a, .link-back a:link {
+	padding: 10px;
+	color: #CCC;
+	text-decoration: none;
+}
+
+.link-back a:hover {
+	/*text-decoration: underline;*/
+	color: white;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.3em;
+}
+
+
+/* Typography */
+
+h1 {
+	color: #1e3259;
+}
+p {
+	margin: 0;
+}

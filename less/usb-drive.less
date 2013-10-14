@@ -6,7 +6,6 @@
 @import "variables.less";
 @import "mixins.less";
 @import "font-awesome.less";
-@import "font-awesome-ie7.less";
 
 
 /* Layout styles
@@ -14,10 +13,11 @@
 
 body {
 	font-family: @baseFontFamily;
+	margin: 0;
 }
 
 .wrapper {
-	width: 960px;
+	width: 740px;
 	margin: 40px auto;
 	text-align: center;
 }
@@ -26,16 +26,26 @@ body {
 	margin-bottom: 20px;
 }
 
+.outro {
+	margin-top: 40px;
+}
+
+.drives {
+	.clearfix();
+}
+
 
 /* USB drive base styles
 ******************/
 
 .usb-drive {
 	display: block;
+	float: left;
 	width: 246px; /* Open size plus casing margin */
 	margin: 25px auto;
 	text-align: left;
 	cursor: pointer;
+	.usb-drive-color();
 	.clearfix();
 	.user-select(none); /* Stop text from being highlighted */
 	& > div {
@@ -121,10 +131,6 @@ body {
 	}
 }
 
-.blue {
-	.usb-drive-color();
-}
-
 .red {
 	.usb-drive-color(lighten(#a22218, 5%));
 }
@@ -135,6 +141,10 @@ body {
 
 .purple {
 	.usb-drive-color(saturate(@purple, 5%));
+}
+
+.green {
+	.usb-drive-color(saturate(@green, 5%));
 }
 
 .carbon {
@@ -150,8 +160,22 @@ body {
 		background-color: #202020;
 		.background-size(20px 20px);
 		.box-shadow(~"0 5px 0 "darken(#1a1a1a, 20%)~", inset 0 2px 1px rgba(255, 255, 255, 0.35), 0 8px 3px rgba(0, 0, 0, 0.35)");
+		border-top: 1px solid @grayDark;
+		border-bottom: 1px solid lighten(@grayDark, 5%);
 	}
 	.cap {
 		color: @yellow;
+	}
+}
+
+/* Responsive */
+@media (max-width: 740px) {
+	.wrapper {
+		width: auto;
+		margin: auto;
+	}
+
+	.usb-drive {
+		float: none;
 	}
 }
