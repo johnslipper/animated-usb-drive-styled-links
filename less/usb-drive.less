@@ -1,0 +1,157 @@
+/* Bootstrap core files
+****************************/
+
+
+@import "reset.less";
+@import "variables.less";
+@import "mixins.less";
+@import "font-awesome.less";
+@import "font-awesome-ie7.less";
+
+
+/* Layout styles
+******************/
+
+body {
+	font-family: @baseFontFamily;
+}
+
+.wrapper {
+	width: 960px;
+	margin: 40px auto;
+	text-align: center;
+}
+
+.intro {
+	margin-bottom: 20px;
+}
+
+
+/* USB drive base styles
+******************/
+
+.usb-drive {
+	display: block;
+	width: 246px; /* Open size plus casing margin */
+	margin: 25px auto;
+	text-align: left;
+	cursor: pointer;
+	.clearfix();
+	.user-select(none); /* Stop text from being highlighted */
+	& > div {
+		float: left;
+		height: 50px;
+	}
+	.casing, .cap {
+		line-height: 50px;
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.65), 0 1px 1px rgba(255, 255, 255, 0.35);
+	}
+	.casing {
+		width: 95px;
+		margin-left: 36px; /* Offset by width of connector for centering */
+		padding-left: 15px;
+		padding-right: 10px;
+		border-radius: 25px 0 0 25px;
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.connector {
+		width: 0;
+		position: relative;
+		overflow: hidden;
+		.transition(width 100ms ease-in-out);
+		.inner {
+			margin-top: 12px;
+			width: 30px;
+			height: 30px;
+			.border-radius(0 2px 2px 0);
+			#gradient > .vertical-three-colors(@grayLight, lighten(@grayLight, 15%), 90%, lighten(@gray, 10%));
+			.box-shadow(~"inset 3px 0 3px rgba(0,0,0,0.15), 0 5px 0 "darken(@gray, 10%)~", inset 0 2px 1px rgba(255, 255, 255, 0.45), 0 5px 10px rgba(0, 0, 0, 0.65)");
+			span {
+				position: absolute;
+				width: 5px;
+				height: 5px;
+				left: 7px;
+				background-color: @grayDark;
+				.border-radius(1px);
+				.box-shadow(~"inset 0 -1px 0 rgba(0, 0, 0, 0.65), 0 1px 0 rgba(255, 255, 255, 0.35)");
+				&:first-of-type {
+					top: 19px;
+				}
+				&:last-of-type {
+					top: 29px;
+				}
+			}
+		}
+	}
+	.cap {
+		width: 36px;
+		padding-left: 10px;
+		border-radius: 0 25px 25px 0;
+		font-size: 18px;
+	}
+	/* active state */
+	&:active, &.active {
+		text-decoration: none;
+		.casing, .cap {
+			color: #FFF;
+		}
+	}
+	/* hover state */
+	&:hover, &.hover {
+		.connector {
+			width: 35px;
+		}
+	}
+}
+
+
+/* USB Drive Colouring via LESS function
+****************************************/
+
+.usb-drive-color(@driveColor: #04aef4) {
+	.casing, .cap {
+		color: darken(@driveColor, 15%);
+		background-color: @driveColor;
+		border-top: 1px solid @driveColor;
+		border-bottom: 1px solid lighten(@driveColor, 5%);
+		.box-shadow(~"0 5px 0 "darken(@driveColor, 20%)~", inset 0 2px 1px rgba(255, 255, 255, 0.35), 0 8px 3px rgba(0, 0, 0, 0.35)");
+		#gradient > .vertical(lighten(@driveColor, 10%), darken(@driveColor, 8%));
+	}
+}
+
+.blue {
+	.usb-drive-color();
+}
+
+.red {
+	.usb-drive-color(lighten(#a22218, 5%));
+}
+
+.orange {
+	.usb-drive-color(saturate(@orange, 5%));
+}
+
+.purple {
+	.usb-drive-color(saturate(@purple, 5%));
+}
+
+.carbon {
+	.casing, .cap {
+		color: #CCC;
+		background:
+		linear-gradient(27deg, #222 5px, transparent 5px) 0 5px,
+		linear-gradient(207deg, #222 5px, transparent 5px) 10px 0px,
+		linear-gradient(27deg, #2f2f2f 5px, transparent 5px) 0px 10px,
+		linear-gradient(207deg, #2f2f2f 5px, transparent 5px) 10px 5px,
+		linear-gradient(90deg, #282828 10px, transparent 10px),
+		linear-gradient(#2a2a2a 25%, #1a1a1a 25%, #272727 50%, transparent 50%, transparent 75%, #313131 75%, #313131);
+		background-color: #202020;
+		.background-size(20px 20px);
+		.box-shadow(~"0 5px 0 "darken(#1a1a1a, 20%)~", inset 0 2px 1px rgba(255, 255, 255, 0.35), 0 8px 3px rgba(0, 0, 0, 0.35)");
+	}
+	.cap {
+		color: @yellow;
+	}
+}
