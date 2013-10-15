@@ -1,4 +1,4 @@
-CSS3USBDrives
-=============
+Animated CSS3 USB Drives
+========================
 
-Links styled to look like USB drives. CSS3 transtional animations on mouse interaction.
+Links styled to look like USB drives. CSS3 transitional animations on mouse interaction.
